@@ -1,0 +1,123 @@
+\documentclass[pdf, t, 10pt]{beamer}
+% https://tex.stackexchange.com/a/53783/31941 replace with your own command
+\beamertemplatenavigationsymbolsempty
+\usetheme{Antibes}
+\mode<presentation>{}
+
+%math symbols
+\usepackage{amssymb, amsmath, amsthm}
+
+%stretch cases brace
+\usepackage{mathtools}
+
+%font
+\usepackage{mathpazo}
+
+%make " quotation marks 
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+% text coloring: https://tex.stackexchange.com/questions/9637/changing-style-of-alert-environment-in-beamer
+\setbeamercolor{alerted text}{fg=white,bg=blue}
+\newcommand{\boxalert}[1]{{%
+  \usebeamercolor{alerted text}\colorbox{bg}{\alert{#1}}%
+}}
+
+%appropriate spacing after commas
+\usepackage{icomma}
+
+%%preamble
+\title{Using the \texttt{blogdown} Package and Netlify to Build Websites}
+\author{Yeng M. Miller-Chang}
+
+% add team names here
+\date{July 18, 2019}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{About Me}
+\begin{itemize}
+\item E-mail: yeng.m.chang@gmail.com or add me on LinkedIn (https://www.linkedin.com/in/yengmchang/)
+\item Graduated in 2014 with B.S. Mathematics - Statistics at UW-Eau Claire, working on M.S. Statistics at Iowa State University
+\item Since 2014, I've had positions in life insurance, electronic health records, K-12 education, marketing, and my current position in higher education (at Normandale Community College)
+\item I've used R for about 4 years
+\item I'm teaching a class on data querying, cleansing, and reporting in R, SQL, Access, and Excel with some Git and GitHub this Fall (DSCI 2000: Introduction to Data Science) at Normandale... contact me if you're interested
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why?}
+\begin{itemize}
+\item Sharing information with others
+\item I was not up for using Blogger, Tumblr, etc... and wanted to build something that I could customize.
+\item LaTeX and R code integration(!)
+\item At the same time (yes, in a past life, I had coded a website from scratch using HTML, CSS, JavaScript, and D3.js), I wanted to start with something that looked nice rather than start from raw code. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why?}
+So what did I do?\pause 
+
+\vspace{0.2cm}
+I bookmarked the \texttt{blogdown} text webpage and had it sit there for months.
+\begin{center}
+\includegraphics{Bookmarks.PNG}
+\end{center}
+\end{frame}
+
+\begin{frame}{Why?}
+And then one weekend, I decided to spend a good day going through the book.
+\end{frame}
+
+\begin{frame}{How-To}
+I won't go through all of the details of how to develop a blog (chapter 1.7 in the text does this pretty well), but I'll cover them at a high level, especially as I tried to develop something that would work for my purposes.
+\end{frame}
+
+\begin{frame}{How-To}
+\textbf{Step 1}: Figure out what theme you want on \url{https://themes.gohugo.io/} and take note of its GitHub repository.
+
+\vspace{0.2cm}
+This might seem like an easy step, but \textbf{choose wisely}. Transferring (what may appear to be) the same content from one theme to another can take \textbf{hours of work}! 
+
+\vspace{0.2cm}
+Compare...
+
+\vspace{0.2cm}
+GitHub: \url{https://github.com/millerchangym?tab=repositories}
+
+\vspace{0.2cm}
+XMin Theme: \url{https://vibrant-babbage-4726a0.netlify.com/}
+
+\vspace{0.2cm}
+Hugo Academic: \url{https://vibrant-lovelace-08e7c4.netlify.com/}
+\end{frame}
+
+\begin{frame}{How-To}
+\textbf{Step 2}: Create a new R Project using RStudio and type \texttt{blogdown::new\_site(theme = 'user/repo')}, where \texttt{'user/repo'} comes from the GitHub \texttt{username/repository\_name} part of the link for the desired theme.
+
+\vspace{0.2cm}
+\textbf{Step 3}: Make lots of changes, hope that they work, and hope that you can find the file that has what you're looking for. (This is where I spent the bulk of my time.) Let's look at the repositories...
+
+\vspace{0.2cm}
+I also find that having examples of blogs with the same theme that have roughly what I'm looking for to be very helpful if they have a GitHub repository.
+
+\vspace{0.2cm}
+Make sure you're staging/commmitting everything in your content into Git and pushing into GitHub everything except the \texttt{public/} folder (not necessary).
+
+\end{frame}
+
+\begin{frame}{How-To}
+\textbf{Step 4}: Log in to Netlify (\url{https://app.netlify.com/}) using GitHub, set the Hugo version (see section 3.1 of the text), and deploy. This will give you a free domain name under Netlify's domain name.
+
+
+\end{frame}
+
+\begin{frame}{References}
+\begin{itemize}
+\item Xie, Y., Thomas, A., \& Allaire, J. (2019). \textit{blogdown: Creating Websites with R Markdown}. Chapman \& Hall/CRC. Retrieved from \url{https://bookdown.org/yihui/blogdown/}
+\end{itemize}
+\end{frame}
+
+\end{document}
